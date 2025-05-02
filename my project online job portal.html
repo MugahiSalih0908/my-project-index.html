@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+    }
+
+    .navbar {
+      background-color: #007BFF;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.8)), url('https://www.codewithc.com/wp-content/uploads/2015/01/online-job-portal.jpg') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .feature-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card i {
+      font-size: 2rem;
+      color: #007BFF;
+    }
+
+    .job-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .job-card h3 {
+      color: #007BFF;
+    }
+
+    .job-card .job-type {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #28a745;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    .job-card .salary {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .job-card a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .job-card a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      background-color: #007BFF;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .about-section {
+      padding: 30px;
+      background-color: #fff;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-section h2 {
+      color: #007BFF;
+    }
+
+    .about-section img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .jobs-section {
+      padding: 30px;
+      background-color: #fff;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .jobs-section h2 {
+      color: #007BFF;
+    }
+
+    .jobs-section img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .profile-section {
+      padding: 30px;
+      background-color: #fff;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-section h2 {
+      color: #007BFF;
+    }
+
+    .profile-section label {
+      font-weight: bold;
+    }
+
+    .profile-section input,
+    .profile-section textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .profile-section button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .profile-section button:hover {
+      background-color: #0056b3;
+    }
+
+    .employers-section {
+      padding: 30px;
+      background-color: #fff;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .employers-section h2 {
+      color: #007BFF;
+    }
+
+    .employers-section img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="https://www.aalpha.net/wp-content/uploads/2021/05/job_search_portals.png" alt="Job Portal Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#jobs">Jobs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#employers">Employers</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-success me-2" onclick="openModal('login-modal')">Login</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-warning" onclick="openModal('register-modal')">Register</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1>Find Your Dream Job</h1>
+          <p>Search for the latest job openings and kickstart your career.</p>
+          <form class="d-flex">
+            <input type="text" class="form-control me-2" placeholder="Job title or keyword">
+            <input type="text" class="form-control me-2" placeholder="Location">
+            <button type="submit" class="btn btn-warning">Search</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <img src="https://5.imimg.com/data5/TQ/QA/ZE/SELLER-41376584/job-portal-software-500x500.png" alt="Job Search Illustration" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Us</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="https://smartblogger.com/wp-content/uploads/2020/09/online-jobs.jpg" alt="About Us Image" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+          <p>
+            Welcome to <strong>Job Portal</strong>, your one-stop destination for finding the perfect job and advancing your career.
+            We are dedicated to connecting job seekers with top employers across various industries and locations.
+          </p>
+          <p>
+            Our platform offers a wide range of job opportunities, from entry-level positions to senior roles.
+            Whether you're looking for full-time, part-time, or remote work, we've got you covered.
+          </p>
+          <p>
+            Our mission is to make the job search process simple, efficient, and effective for everyone.
+            We provide tools and resources to help you create a standout profile, apply to jobs, and prepare for interviews.
+          </p>
+          <p>
+            Join us today and take the first step toward your dream career!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="jobs" class="jobs-section">
+    <div class="container">
+      <h2>Job Listings</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="https://cdn-blog.novoresume.com/articles/online-jobs/bg.webp" alt="Job Listings Image" class="img-fluid">
+          <img src="https://www.ntaskmanager.com/wp-content/uploads/2020/09/Best-online-jobs.png" alt="Job Listings Image" class="img-fluid">
+          <img src="https://www.getrushapp.com/blog/wp-content/uploads/2023/02/part-time-jobs.jpg" alt="Job Listings Image" class="img-fluid">
+
+        </div>
+        <div class="col-md-6">
+          <p>
+            Explore our latest job listings and find opportunities that match your skills and interests.
+            We offer a variety of roles in industries such as technology, healthcare, finance, marketing, and more.
+          </p>
+          <p>
+            Each job listing includes detailed information about the role, company, location, and salary range.
+            You can save jobs, apply directly, or view more details to make an informed decision.
+          </p>
+          <div class="job-card">
+            <h3>Software Engineer</h3>
+            <p>Company: Tech Corp</p>
+            <p>Location: Remote</p>
+            <p class="job-type">Full-Time</p>
+            <p class="salary">Salary: 80,000INDR - 100,000INDR</p>
+            <p>We are looking for a skilled Software Engineer to join our team...</p>
+            <button class="btn btn-success me-2 save-btn">Save Job</button>
+            <button class="btn btn-primary apply-btn">Apply Now</button>
+            <a href="#job-details" class="ms-2">View Details</a>
+          </div>
+          <div class="job-card">
+            <h3>Marketing Manager</h3>
+            <p>Company: Creative Agency</p>
+            <p>Location: New </p>Delhi
+            <p class="job-type">Part-Time</p>
+            <p class="salary">Salary: 50,000INDR - 70,000INDR</p>
+            <p>We need a creative Marketing Manager to lead our campaigns...</p>
+            <button class="btn btn-success me-2 save-btn">Save Job</button>
+            <button class="btn btn-primary apply-btn">Apply Now</button>
+            <a href="#job-details" class="ms-2">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="profile" class="profile-section">
+    <div class="container">
+      <h2>Job Seeker Profile</h2>
+      <p>
+        Create or update your profile to stand out to employers. A complete profile increases your chances of getting hired.
+        Provide accurate information about your skills, experience, and education to showcase your qualifications.
+      </p>
+      <form id="profile-form">
+        <div class="mb-3">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" placeholder="Enter your full name">
+        </div>
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email">
+        </div>
+        <div class="mb-3">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" placeholder="Enter your phone number">
+        </div>
+        <div class="mb-3">
+          <label for="resume">Upload Resume</label>
+          <input type="file" id="resume">
+        </div>
+        <button type="submit" class="btn btn-primary">Save Profile</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="employers" class="employers-section">
+    <div class="container">
+      <h2>For Employers</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="https://th.bing.com/th/id/OIP.DDkVnpDj1xYIzXqWHexMxwHaDt?w=304&h=175&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Employers Image" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+          <p>
+            Are you an employer looking to hire top talent? Our platform makes it easy to post job listings, manage applications,
+            and find the perfect candidates for your organization.
+          </p>
+          <p>
+            With our advanced tools, you can:
+          </p>
+          <ul>
+            <li>Post job listings and reach thousands of qualified candidates.</li>
+            <li>Manage applications and shortlist candidates efficiently.</li>
+            <li>View detailed profiles of job seekers to make informed hiring decisions.</li>
+          </ul>
+          <button class="btn btn-primary" onclick="openModal('post-job-modal')">Post a Job</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="modal fade" id="login-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="login-email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="login-email" placeholder="Email">
+            </div>
+            <div class="mb-3">
+              <label for="login-password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="login-password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="register-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Register</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="register-name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="register-name" placeholder="Full Name">
+            </div>
+            <div class="mb-3">
+              <label for="register-email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="register-email" placeholder="Email">
+            </div>
+            <div class="mb-3">
+              <label for="register-password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="register-password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post Job Modal -->
+  <div class="modal fade" id="post-job-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Post a Job</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="job-title" class="form-label">Job Title</label>
+              <input type="text" class="form-control" id="job-title" placeholder="Enter job title">
+            </div>
+            <div class="mb-3">
+              <label for="job-description" class="form-label">Job Description</label>
+              <textarea class="form-control" id="job-description" placeholder="Enter job description"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="job-location" class="form-label">Location</label>
+              <input type="text" class="form-control" id="job-location" placeholder="Enter job location">
+            </div>
+            <div class="mb-3">
+              <label for="job-salary" class="form-label">Salary</label>
+              <input type="text" class="form-control" id="job-salary" placeholder="Enter salary range">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Post Job</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script> 
+    function openModal(modalId) {
+      const modal = new bootstrap.Modal(document.getElementById(modalId));
+      modal.show();
+    }
+
+    // Save Profile Form Submission
+    document.getElementById('profile-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Profile saved successfully!');
+    });
+  </script>
+</body>
+</html>
